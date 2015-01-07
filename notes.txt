@@ -1,0 +1,13 @@
+* Quora Machine Learning
+* Book about statiscs in drive
+* Caret package
+
+* "Relative importance" video
+
+* Errors:
+ - I should worrie about Out of sample (new data) and not In sample
+ (same data)
+
+ - http://en.wikipedia.org/wiki/Overfitting.
+
+
