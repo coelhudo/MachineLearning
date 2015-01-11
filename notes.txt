@@ -15,3 +15,5 @@
 - Caret Package
 - ISLR package
 
+ - There are tutorials in the slides (hyperlinks)
+
