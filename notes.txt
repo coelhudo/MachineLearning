@@ -1,19 +1,5 @@
 * Quora Machine Learning
-* Book about statiscs in drive
+* Book Elements of Statistical Learning
 * Caret package
-
-* "Relative importance" video
-
-* Errors:
- - I should worrie about Out of sample (new data) and not In sample
- (same data)
-
- - http://en.wikipedia.org/wiki/Overfitting.
- - http://en.wikipedia.org/wiki/Overfitting.
- - http://en.wikipedia.org/wiki/Overfitting.
-
-- Caret Package
-- ISLR package
-
- - There are tutorials in the slides (hyperlinks)
+* http://en.wikipedia.org/wiki/Overfitting.
 
