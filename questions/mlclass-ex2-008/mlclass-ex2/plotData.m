@@ -13,6 +13,8 @@ figure; hold on;
 %
 
 
+plot(X(find(y),1),X(find(y),2),'k+');
+plot(X(find(y==0),1),X(find(y==0),2),'ko', 'markerfacecolor', 'y');
 
 
 
