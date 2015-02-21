@@ -31,7 +31,7 @@ function [theta, J_history] = gradientDescent(X, y, theta, alpha, num_iters)
     J_history(iter) = computeCost(X, y, theta);
     tempTheta1 = theta - currentCost(theta,X(:,1));
     tempTheta2 = theta - currentCost(theta,X(:,2));
-    theta = [tempTheta1(1,1); tempTheta2(2,1)]
+    theta = [tempTheta1(1); tempTheta2(2)]
   end
 
 end
