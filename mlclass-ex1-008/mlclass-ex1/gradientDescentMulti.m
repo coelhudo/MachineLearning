@@ -25,7 +25,7 @@ function [theta, J_history] = gradientDescentMulti(X, y, theta, alpha, num_iters
     for thetaIter = 1:size(X,2)
       thetas(thetaIter) = theta(thetaIter) - currentCost(theta,X(:,thetaIter));
     end
-    theta = thetas
+    theta = thetas;
   end
 
 end
