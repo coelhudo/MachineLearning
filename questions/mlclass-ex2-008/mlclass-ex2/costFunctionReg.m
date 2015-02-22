@@ -20,8 +20,10 @@ grad = zeros(size(theta));
 
 J = sum(-y .* log(sigmoid(X*theta)) - (1 - y) .* log(1 - sigmoid(X*theta))) / m + lambda * sum(theta(2:end).^2)/(2*m);
 
-for iter = 1:size(theta)
-  grad(iter) = sum((sigmoid(X*theta) - y) .* X(:,iter)) / m;
+  grad(1) = sum((sigmoid(X*theta) - y) .* X(:,1)) / m;
+
+for iter = 2:size(theta)
+  grad(iter) = sum((sigmoid(X*theta) - y) .* X(:,iter)) / m + (lambda * theta(iter))/m ;
 end
 
 
