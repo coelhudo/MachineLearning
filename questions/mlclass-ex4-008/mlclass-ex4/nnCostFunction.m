@@ -63,9 +63,11 @@ Theta2_grad = zeros(size(Theta2));
 %
 
 aOne = [ones(size(X,1),1) X];
-aTwo = sigmoid(aOne*Theta1');
+zTwo = aOne*Theta1';
+aTwo = sigmoid(zTwo);
 aTwo = [ones(size(aTwo,1),1) aTwo];
-aThree = sigmoid(aTwo*Theta2');
+zThree = aTwo*Theta2';
+aThree = sigmoid(zThree);
 hypothesys = aThree;
 
 for i = 1:num_labels
@@ -73,17 +75,31 @@ for i = 1:num_labels
   J = J + sum(-currentY.*log(hypothesys(:,i)) - (1 - currentY).*log(1 - hypothesys(:,i)))/m;
 end
 
-regularization = lambda*(sum(Theta1(:,2:end)(:).^2) + sum(Theta2(:,2:end)(:).^2))/(2*m)
+regularization = lambda*(sum(Theta1(:,2:end)(:).^2) + sum(Theta2(:,2:end)(:).^2))/(2*m);
 
 J = J + regularization;
 
+delta_ = 0;
+for t = 1:m
+  currentX = X(t,:); %1x400
+  currentY = y(t); % 1x1
+  aOne = [1 currentX]; %1x401
+  zTwo = aOne*Theta1'; %Theta1 is 25x401 -> 1x25
+  aTwo = sigmoid(zTwo); %1x25
+  aTwo = [1 aTwo]; %1x26
+  zThree = aTwo*Theta2'; %Theta2 is 10x26 -> 1x10
+  aThree = sigmoid(zThree); % 1x10
+
+  deltaThree = aThree - (currentY == [1:num_labels]); %1x10
+  deltaTwo = deltaThree*Theta2(:,2:end).*sigmoidGradient(zTwo); %1x25
+
+  Theta2_grad = Theta2_grad + deltaThree'*aTwo; %10x26
+  Theta1_grad = Theta1_grad + deltaTwo'*aOne; %25x401
+end
 
 
-
-
-
-
-
+Theta2_grad = Theta2_grad/m;
+Theta1_grad = Theta1_grad/m;
 
 % -------------------------------------------------------------
 
