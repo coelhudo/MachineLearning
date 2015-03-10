@@ -62,12 +62,16 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
+aOne = [ones(size(X,1),1) X];
+aTwo = sigmoid(aOne*Theta1');
+aTwo = [ones(size(aTwo,1),1) aTwo];
+aThree = sigmoid(aTwo*Theta2');
+hypothesys = aThree;
 
-
-
-
-
-
+for i = 1:num_labels
+  currentY = (y==i);
+  J = J + sum(-currentY.*log(hypothesys(:,i)) - (1 - currentY).*log(1 - hypothesys(:,i)))/m;
+end
 
 
 
