@@ -97,9 +97,13 @@ for t = 1:m
   Theta1_grad = Theta1_grad + deltaTwo'*aOne; %25x401
 end
 
+Theta1(:,1) = 0;
+Theta2(:,1) = 0;
+Theta1_grad_regularization = lambda * Theta1;
+Theta2_grad_regularization = lambda * Theta2;
 
-Theta2_grad = Theta2_grad/m;
-Theta1_grad = Theta1_grad/m;
+Theta2_grad = (Theta2_grad + Theta2_grad_regularization)/m;
+Theta1_grad = (Theta1_grad + Theta1_grad_regularization)/m;
 
 % -------------------------------------------------------------
 
