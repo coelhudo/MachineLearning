@@ -73,8 +73,9 @@ for i = 1:num_labels
   J = J + sum(-currentY.*log(hypothesys(:,i)) - (1 - currentY).*log(1 - hypothesys(:,i)))/m;
 end
 
+regularization = lambda*(sum(Theta1(:,2:end)(:).^2) + sum(Theta2(:,2:end)(:).^2))/(2*m)
 
-
+J = J + regularization;
 
 
 
