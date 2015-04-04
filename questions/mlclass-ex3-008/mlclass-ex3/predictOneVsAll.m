@@ -30,12 +30,12 @@ X = [ones(m, 1) X];
 %
 
 for row=1:m
-  fprintf("Row %i\n", row);
+  %fprintf("Row %i\n", row);
   [maxValue,index] = max(all_theta * X(row,:)');
   p(row) = index;
 end
 
-p
+p;
 
 % =========================================================================
 
