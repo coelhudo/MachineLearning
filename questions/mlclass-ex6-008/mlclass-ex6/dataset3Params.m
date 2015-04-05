@@ -23,11 +23,32 @@ sigma = 0.3;
 %        mean(double(predictions ~= yval))
 %
 
+## x1 = [1 2 1]; x2 = [0 4 -1];
 
+## values = [0.01; 0.03; 0.1; 0.3; 1; 3; 10; 30];
+## length = size(values,1);
 
+## error = intmax
 
+## for i = 1:length
+##   for j = 1:length
+##     currentC = values(i);
+##     currentSigma = values(j);
+##     model = svmTrain(X, y, currentC, @(x1, x2) gaussianKernel(x1, x2, currentSigma));
 
+##     pred = svmPredict(model, Xval);
 
+##     currentError =mean(double(pred ~= yval));
+##     if error > currentError
+##       error = currentError;
+##       C = currentC;
+##       sigma = currentSigma;
+##     end
+##   end
+## end
+
+C = 1;
+sigma = 0.1;
 
 % =========================================================================
 
