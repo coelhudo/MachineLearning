@@ -21,11 +21,12 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
+centroidsAsCell = num2cell(centroids,2);
 
-
-
-
-
+for xIndex=1:size(X,1)
+  centroidsDistance = cellfun(@(centroidValue)(norm(X(xIndex,:) -  centroidValue, 2)), centroidsAsCell);
+  idx(xIndex) = find(centroidsDistance == min(centroidsDistance));
+end
 
 % =============================================================
 
