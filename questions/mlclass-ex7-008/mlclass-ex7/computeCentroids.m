@@ -26,8 +26,11 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
-
-
+for currentCentroid=1:K
+  xIdxForCurrentK = find(idx == currentCentroid);
+  currentX = X(xIdxForCurrentK,:);
+  centroids(currentCentroid,:) = mean(currentX);
+end
 
 
 
