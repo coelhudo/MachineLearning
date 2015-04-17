@@ -40,19 +40,9 @@ Theta_grad = zeros(size(Theta));
 %                     partial derivatives w.r.t. to each element of Theta
 %
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+costPerUnit = ((X * Theta') - Y).^2;
+costPerUnit = costPerUnit .* R;
+J = sum(costPerUnit(:)) / 2;
 
 
 % =============================================================
